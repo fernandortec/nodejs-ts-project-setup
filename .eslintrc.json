@@ -63,25 +63,12 @@
       {
         "ts": "never"
       }
-    ],
-    "import-helpers/order-imports": [
-      "warn",
-      {
-        "newlinesBetween": "always", // new line between groups
-        "groups": [
-          "module",
-          "/^@server/shared/",
-          "/^@/",
-          ["parent", "sibling", "index"]
-        ],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
-      }
     ]
   },
   "settings": {
     "import/resolver": {
-      "typescript": {
-        "directory": "packages/server/*/tsconfig.json"
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   }
