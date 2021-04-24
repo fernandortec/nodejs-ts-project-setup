@@ -1,0 +1,3 @@
+class CreateUserDTO {}
+
+export { CreateUserDTO };
