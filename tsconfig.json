@@ -15,12 +15,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "paths": {
-      "@entities/*": ["./src/entities/*"],
-      "@repositories/*": ["./src/repositories/*"],
-      "@providers/*": ["./src/providers/*"],
-      "@useCases/*": ["./src/useCase/*"]
-    }
   },
   "include": ["src/**/*"]
 }
