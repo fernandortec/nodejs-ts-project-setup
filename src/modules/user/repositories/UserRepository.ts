@@ -1,3 +1,5 @@
-class UserRepository {}
+interface UserRepository {
+  id: string;
+}
 
 export { UserRepository };

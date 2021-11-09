@@ -1,3 +1,0 @@
-class CreateUserDTO {}
-
-export { CreateUserDTO };

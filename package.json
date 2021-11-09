@@ -1,5 +1,5 @@
 {
-  "name": "node-setup",
+  "name": "node-js-ts-setup",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -34,10 +34,10 @@
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
-    "nanoid": "^3.1.30",
     "dotenv": "^10.0.0",
+    "fastify": "^3.23.1",
+    "nanoid": "^3.1.30",
     "reflect-metadata": "^0.1.13",
-    "express": "^4.17.1",
     "ts-jest": "^27.0.7",
     "tsyringe": "^4.6.0"
   }

@@ -1,13 +1,26 @@
-import express from 'express';
+import Fastify from 'fastify';
+import 'reflect-metadata';
+import './shared/container';
 
-import { router } from './router';
+import { indexRouter } from './routes/index.routes';
+import AppError from './shared/errors/AppError';
 
-const app = express();
+const app = Fastify();
 
-app.use(express.json());
+app.register(indexRouter);
 
-app.get('/', (request, response) => response.json({ message: 'Hello world' }));
-
-app.use(router);
+app.setErrorHandler((err, request, reply) => {
+  if (err instanceof AppError) {
+    reply.status(err.statusCode).send({
+      status: 'error',
+      statusCode: err.statusCode,
+      message: err.message
+    });
+  }
+  reply.status(500).send({
+    status: 'error',
+    message: `Internal Server Error ${err.message}`
+  });
+});
 
 export { app };
