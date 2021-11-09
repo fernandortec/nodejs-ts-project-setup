@@ -10,8 +10,8 @@ class CreateUserUseCase {
     private userRepository: UserRepository
   ) {}
 
-  async createUser(): Promise<User> {
-    const user = new User();
+  async createUser(id: string): Promise<User> {
+    const user = await this.userRepository.create({ id });
 
     return user;
   }

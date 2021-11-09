@@ -1,5 +1,8 @@
+import { CreateUserDTO } from '../DTOs/CreateUserDTO';
+import { User } from '../entities/User';
+
 interface UserRepository {
-  id: string;
+  create({ id }: CreateUserDTO): Promise<User>;
 }
 
 export { UserRepository };

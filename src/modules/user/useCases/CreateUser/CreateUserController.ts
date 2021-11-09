@@ -10,7 +10,7 @@ class CreateUserController {
   ): Promise<FastifyReply> {
     const createUserUseCase = container.resolve(CreateUserUseCase);
 
-    const user = await createUserUseCase.createUser();
+    const user = await createUserUseCase.createUser('id');
 
     return reply.send(user);
   }
