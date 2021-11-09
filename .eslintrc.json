@@ -7,7 +7,6 @@
   "extends": [
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
   "globals": {
@@ -19,7 +18,11 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "prettier", "eslint-plugin-import-helpers"],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "eslint-plugin-import-helpers"
+  ],
   "rules": {
     "no-new": "off",
     "no-prototype-builtins": "off",
@@ -27,6 +30,8 @@
     "max-classes-per-file": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "no-console": "off",
+    "no-param-reassign": "off",
+    "lines-between-class-members": "off",
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/no-unused-vars": [
@@ -36,23 +41,20 @@
       }
     ],
     "no-useless-constructor": "off",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "interface",
-        "format": ["PascalCase"],
-        "custom": {
-          "regex": "^I[A-Z]",
-          "match": true
-        }
-      }
+    "@typescript-eslint/naming-convention": [ 
+      "error", 
+      { 
+        "selector": "interface", 
+        "format": ["PascalCase"], 
+        "custom": { 
+          "regex": "^[A-Z]", 
+          "match": true 
+        } 
+      } 
     ],
-    "@typescript-eslint/explicit-module-boundary-types": [
-      "warn",
-      {
-        "allowArgumentsExplicitlyTypedAsAny": true
-      }
-    ],
+    "@typescript-eslint/explicit-module-boundary-types": ["warn", {
+      "allowArgumentsExplicitlyTypedAsAny": true
+    }],
     "no-underscore-dangle": "off",
     "@typescript-eslint/camelcase": "off",
     "prettier/prettier": "error",
@@ -63,12 +65,25 @@
       {
         "ts": "never"
       }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^@server\/shared/",
+          "/^@/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
     ]
   },
   "settings": {
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      "typescript": {
+        "directory": "packages/server/*/tsconfig.json"
       }
     }
   }

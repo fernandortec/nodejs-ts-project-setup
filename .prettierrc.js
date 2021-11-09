@@ -3,5 +3,6 @@ module.exports = {
   singleQuote: true,
   arrowParens: 'avoid',
   trailingComma: 'none',
-  endOfLine: 'auto'
+  stylelintIntegration: true,
+  endOfLine: 'auto',
 };

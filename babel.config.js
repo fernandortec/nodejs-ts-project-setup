@@ -4,13 +4,20 @@ module.exports = {
       '@babel/preset-env',
       {
         targets: {
-          node: 'current',
-        },
-      },
+          node: 'current'
+        }
+      }
     ],
     '@babel/preset-typescript'
   ],
-  ignore: [
-    "**/*.spec.ts"
-  ]
+  plugins: [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "babel-plugin-transform-typescript-metadata"
+  ],
+  ignore: ['**/*.spec.ts', 'src/@types']
 };
